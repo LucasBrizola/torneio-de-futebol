@@ -1,8 +1,37 @@
 # torneio-de-futebol
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+Final Project designed to Fundatec's Conclusion Course. This is the backend.
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+Project made with Java Quarkus and connection with Atlas MongoDB.
+
+IntelliJ has a Plugin called Quarkus Run Configs, which allows to run the project through the IDE instead of command lines.
+
+## Endpoints:
+See project Torneio-de-futebol-postman for requests with body examples
+ 
+  Team:
+```
+POST localhost:8080/teams - create Team
+POST localhost:8080/teams/team/{name} - addPlayer to Team
+GET localhost:8080/teams - findAll
+GET localhost:8080/teams/{name} - findByName
+PUT localhost:8080/teams/{name} - update Team
+DELETE localhost:8080/teams/{name} - deleteByName
+```
+  Match:
+```
+POST localhost:8080/matches - create Match
+GET localhost:8080/matches - findAll
+GET localhost:8080/matches/{name} - findByName
+PUT localhost:8080/matches/{name} - update Match
+PATCH localhost:8080/matches/{name} - update goals from Match
+DELETE localhost:8080/matches/{name} - deleteByName
+```
+  User:
+```
+POST localhost:8080/user - Login
+```
+This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 ## Running the application in dev mode
 
@@ -10,9 +39,6 @@ You can run your application in dev mode that enables live coding using:
 ```shell script
 ./mvnw compile quarkus:dev
 ```
-
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
-
 ## Packaging and running the application
 
 The application can be packaged using:
@@ -20,16 +46,8 @@ The application can be packaged using:
 ./mvnw package
 ```
 It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
 
 The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
-
-If you want to build an _über-jar_, execute the following command:
-```shell script
-./mvnw package -Dquarkus.package.type=uber-jar
-```
-
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
 
 ## Creating a native executable
 
@@ -44,17 +62,3 @@ Or, if you don't have GraalVM installed, you can run the native executable build
 ```
 
 You can then execute your native executable with: `./target/torneio-de-futebol-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
-
-## Related Guides
-
-- RESTEasy Reactive ([guide](https://quarkus.io/guides/resteasy-reactive)): A JAX-RS implementation utilizing build time processing and Vert.x. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it.
-
-## Provided Code
-
-### RESTEasy Reactive
-
-Easily start your Reactive RESTful Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
